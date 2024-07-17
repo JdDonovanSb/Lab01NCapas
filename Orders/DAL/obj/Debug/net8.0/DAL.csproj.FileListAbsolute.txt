@@ -1,0 +1,15 @@
+C:\Lab01NCapas\Orders\DAL\bin\Debug\net8.0\DAL.deps.json
+C:\Lab01NCapas\Orders\DAL\bin\Debug\net8.0\DAL.runtimeconfig.json
+C:\Lab01NCapas\Orders\DAL\bin\Debug\net8.0\DAL.dll
+C:\Lab01NCapas\Orders\DAL\bin\Debug\net8.0\DAL.pdb
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.csproj.AssemblyReference.cache
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.AssemblyInfoInputs.cache
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.AssemblyInfo.cs
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.csproj.CoreCompileInputs.cache
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.sourcelink.json
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.dll
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\refint\DAL.dll
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.pdb
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\DAL.genruntimeconfig.cache
+C:\Lab01NCapas\Orders\DAL\obj\Debug\net8.0\ref\DAL.dll

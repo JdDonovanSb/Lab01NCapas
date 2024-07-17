@@ -1,0 +1,12 @@
+C:\Lab01NCapas\Orders\Entities\bin\Debug\net8.0\Entities.deps.json
+C:\Lab01NCapas\Orders\Entities\bin\Debug\net8.0\Entities.dll
+C:\Lab01NCapas\Orders\Entities\bin\Debug\net8.0\Entities.pdb
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.AssemblyInfo.cs
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.csproj.CoreCompileInputs.cache
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.sourcelink.json
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.dll
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\refint\Entities.dll
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\Entities.pdb
+C:\Lab01NCapas\Orders\Entities\obj\Debug\net8.0\ref\Entities.dll

@@ -361,3 +361,36 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+
+
+# Ignorar archivos de caché de Visual Studio
+.vs/
+
+# Ignorar archivos de caché y binarios generados por el proyecto
+*.bin
+*.cache
+*.suo
+*.user
+*.userosscache
+*.suo
+*.pdb
+*.log
+*.nupkg
+
+# Ignorar archivos específicos de configuración generados por el proyecto
+*.dtbcache.v2
+*.futdcache.v2
+*.metadata.v8.bin
+*.projects.v8.bin
+*.strings.v8.bin
+
+# Ignorar archivos específicos del directorio de objeto (obj) para diferentes configuraciones y versiones
+**/obj/
+**/bin/
+
+# Ignorar archivos de información de ensamblado generados por el proyecto
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.csproj.AssemblyReference.cache

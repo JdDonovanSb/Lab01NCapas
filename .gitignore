@@ -165,7 +165,6 @@ AutoTest.Net/
 
 # Installshield output folder
 [Ee]xpress/
-[obj]/
 
 # DocProject is a documentation generator add-in
 DocProject/buildhelp/
@@ -362,39 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-
-
-
-
-# Ignorar los archivos generados por Visual Studio
-.vs/
-*.user
-*.suo
-*.csproj.user
-*.log
-
-# Ignorar archivos generados por .NET Core
-bin/
-obj/
-
-# Ignorar archivos generados por el compilador
-*.dll
-*.exe
-*.pdb
-*.cache
-*.config
-
-# Ignorar archivos temporales
-*.tmp
-*.bak
-*.swp
-
-# Ignorar archivos y directorios específicos
-Orders/.vs/
-
-
-
-
-
-

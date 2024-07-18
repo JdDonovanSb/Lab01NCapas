@@ -4,9 +4,9 @@ using DAL.Models;
 using System.Linq.Expressions;
 
 
-CreateAsync().GetAwaiter().GetResult();
-RetreiveAsync().GetAwaiter().GetResult();
-
+//CreateAsync().GetAwaiter().GetResult();
+//RetreiveAsync().GetAwaiter().GetResult();
+UpdateAsync().GetAwaiter().GetResult();
 static async Task CreateAsync()
 {
     //Add Customer
@@ -51,6 +51,41 @@ static async Task RetreiveAsync ()
         }
         catch (Exception ex)
         {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+}
+
+static async Task UpdateAsync ()
+{
+    //Supuesto existe el objeto a modificar
+
+    using (var repository = RepositoryFactory.CreateRepository())
+    {
+        var customerToUpdate = await repository.RetreiveAsync<Customer>(Customer => Customer.Id == 78);
+        if (customerToUpdate != null)
+        {
+            customerToUpdate.FirstName = "Liu";
+            customerToUpdate.LastName = "Wong";
+            customerToUpdate.City = "Toronto";
+            customerToUpdate.Country = "Canáda";
+            customerToUpdate.Phone = "+1437 321456987";
+        }
+        try
+        {
+            bool updated = await repository.UpdateAsync(customerToUpdate);
+            if (updated)
+            {
+                Console.WriteLine("The customer has been update succesfully!");
+            }
+            else
+            {
+                Console.WriteLine("Customer update failed");
+            }
+        }
+        catch (Exception ex)
+        {
+
             Console.WriteLine($"Error: {ex.Message}");
         }
     }

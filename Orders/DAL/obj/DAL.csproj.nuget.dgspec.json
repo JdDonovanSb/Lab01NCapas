@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Lab01NCapas\\Orders\\DAL\\DAL.csproj": {}
+    "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Lab01NCapas\\Orders\\DAL\\DAL.csproj": {
+    "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Lab01NCapas\\Orders\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Lab01NCapas\\Orders\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Aprendiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Lab01NCapas\\Orders\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Lab01NCapas\\Orders\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Lab01NCapas\\Orders\\Entities\\Entities.csproj"
+              "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\Entities.csproj"
               }
             }
           }
@@ -95,14 +95,14 @@
         }
       }
     },
-    "C:\\Lab01NCapas\\Orders\\Entities\\Entities.csproj": {
+    "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Lab01NCapas\\Orders\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Lab01NCapas\\Orders\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Aprendiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Lab01NCapas\\Orders\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\Aprendiz\\Lab01NCapas\\Orders\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

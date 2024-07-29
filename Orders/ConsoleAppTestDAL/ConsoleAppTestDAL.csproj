@@ -8,8 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="BLL\BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BLL\bin\Debug\net8.0\" />
+    <Folder Include="BLL\bin\Release\net8.0\" />
+    <Folder Include="BLL\obj\Debug\net8.0\refint\" />
+    <Folder Include="BLL\obj\Debug\net8.0\ref\" />
+    <Folder Include="BLL\obj\Release\net8.0\refint\" />
+    <Folder Include="BLL\obj\Release\net8.0\ref\" />
   </ItemGroup>
 
 </Project>

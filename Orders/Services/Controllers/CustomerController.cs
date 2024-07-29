@@ -1,10 +1,10 @@
 ﻿using BLL;
-using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using SLC;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Http;
 using BLL.Exceptions;
+using DAL.Models;
 
 namespace Services.Controllers
 {

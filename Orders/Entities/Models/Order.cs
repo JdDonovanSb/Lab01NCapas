@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Models;
+namespace Entities.Models;
 
 [Table("Order")]
-[Index("CustomerId", Name = "IndexOrderCustomerId")]
-[Index("OrderDate", Name = "IndexOrderOrderDate")]
+//[Index("CustomerId", Name = "IndexOrderCustomerId")]
+//[Index("OrderDate", Name = "IndexOrderOrderDate")]
 public partial class Order
 {
     [Key]

@@ -1,11 +1,11 @@
-﻿using DAL.Models;
+﻿using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProxyServices.Interfaces
+namespace ProxyService.Interfaces
 {
     public interface ICustomerProxy
     {
@@ -18,6 +18,5 @@ namespace ProxyServices.Interfaces
         Task<Customer> GetByIdAsync(int id);
 
         Task<bool> UpdateAsync(int id, Customer customer);
-
     }
 }

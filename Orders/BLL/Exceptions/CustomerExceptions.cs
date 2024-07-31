@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using DAL;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BLL.Exceptions;
-
-public class CustomerExceptions : Exception
+namespace BLL.Exceptions
 {
-    // you can more static methods here to throw other customer-related exceptions
-    private CustomerExceptions(string message) : base(message)
+    public class CustomerExceptions : Exception
     {
-        //optional: Add constructor logic for logging or custom error handling
-    }
+        private CustomerExceptions(string message) : base(message)
+        {
 
-    public static void ThrowCustomerAlreadyExistsException(string FirstName, string LastName)
-    {
-        throw new CustomerExceptions($"A client with the name already exists{FirstName}{LastName}.");
-    }
+        }
 
-    public static void ThrowInvalidCustomerDataException(string message)
-    {
-        throw new CustomerExceptions(message);
-    }
+        public static void ThrowCustomerAlreadyExistsException(string firstname, string lastname)
+        {
+            throw new CustomerExceptions($"A client with the name already exists {firstname} {lastname}.");
+        }
 
-    public static void ThrowInvalidCustomerIdException(int customerId)
-    {
-        throw new CustomerExceptions($"No customer found with ID {customerId}.");
-    }
+        public static void ThrowInvalidCustomerDataException(string message)
+        {
+            throw new CustomerExceptions(message);
+        }
 
+        public static void ThrowInvalidCustomerIdException(int id)
+        {
+            throw new CustomerExceptions($"The client with id {id} was not found or dont exist");
+        }
+
+    }
 }

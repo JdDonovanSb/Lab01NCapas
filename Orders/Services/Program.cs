@@ -25,15 +25,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseRouting();//Debe ser llamado antes de UseEndpoints
-
-app.UseAuthorization();// Middleware de autorizacion
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-    name: "default",
-    pattern: "api/{controller}/{action}/{id?}");
-});
-
 app.Run();

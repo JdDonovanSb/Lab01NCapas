@@ -10,23 +10,17 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class EFRepository : IRepository
+    public class EFRepositorio : IRepository
     {
-
-        //LLamada a la clase de contexto
-
+        //Llmada  a la clase de contexto
         ApplicationDbContext _context;
 
-        //Constructor
-
-        public EFRepository(ApplicationDbContext context)
+        public EFRepositorio(ApplicationDbContext context)
         {
             this._context = context;
         }
-
         //Dispose
         private bool disposedValue;
-
 
         public async Task<TEntity> CreateAsync<TEntity>(TEntity toCreate) where TEntity : class
         {
@@ -111,5 +105,3 @@ namespace DAL
         }
     }
 }
-
-

@@ -22,11 +22,11 @@ static async Task CreateAsync()
     //Add customer
     Customer customer = new Customer()
     {
-        FirstName = "Jordan",
-        LastName = "Castañeda",
+        FirstName = "Andres",
+        LastName = "Donovan",
         City = "Bogotá",
         Country = "Colombia",
-        Phone = "3022169956"
+        Phone = "3224445566"
     };
 
     using (var repository = RepositoryFactory.CreateRepository())

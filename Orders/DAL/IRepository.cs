@@ -9,7 +9,7 @@ namespace DAL
 {
     public interface IRepository : IDisposable
     {
-        //Agregar una nueva entidad a la base da datos
+        //Agregar una nueva entidad a la base da datos...
         Task<TEntity> CreateAsync<TEntity>(TEntity toCreate) where TEntity : class;
 
         // para eliminar una entidad 

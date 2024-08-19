@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Models;
+namespace Entities.Models;
 
 [Table("Customer")]
-[Index("LastName", "FirstName", Name = "IndexCustomerName")]
+//[Index("LastName", "FirstName", Name = "IndexCustomerName")]
 public partial class Customer
 {
     [Key]
@@ -29,5 +29,5 @@ public partial class Customer
     public string? Phone { get; set; }
 
     [InverseProperty("Customer")]
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Order>? Orders { get; set; } = new List<Order>();
 }

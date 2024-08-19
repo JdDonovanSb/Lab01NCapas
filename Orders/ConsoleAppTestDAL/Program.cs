@@ -1,56 +1,40 @@
-﻿// See https://aka.ms/new-console-template for more information
-using DAL;
-using DAL.Models;
+﻿using DAL;
+using Entities.Models;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
+using Microsoft.Identity.Client;
 
 
-//CreateAsync().GetAwaiter().GetResult();
-//RetreiveAsync().GetAwaiter().GetResult();
-//UpdateAsync().GetAwaiter().GetResult();
-//Filterasync().GetAwaiter().GetResult();
-Deleteasync().GetAwaiter().GetResult();
 
+CreateAsync().GetAwaiter().GetResult();
+RetrieveAsync().GetAwaiter().GetResult();
+UpdateAsync().GetAwaiter().GetResult();
+FilterAsync().GetAwaiter().GetResult();
+DeleteAsync().GetAwaiter().GetResult();
+
+
+Console.ReadKey();
+
+
+//Crear un objeto
 static async Task CreateAsync()
 {
-    //Add Customer
-    Customer customer = new Customer(){
-        FirstName = "Andres",
-        LastName = "Espinosa",
-        City = "Bogota",
+    //Add customer
+    Customer customer = new Customer()
+    {
+        FirstName = "Jordan",
+        LastName = "Castañeda",
+        City = "Bogotá",
         Country = "Colombia",
-        Phone = "12345678900"
+        Phone = "3022169956"
     };
-    
-    using(var repository = RepositoryFactory.CreateRepository())
-    {
-        try
-        {
-            var createCustomer = await repository.CreateAsync(customer);
-            Console.WriteLine($"Add Customer: {createCustomer.LastName} {createCustomer.FirstName}");
-        }
-        catch ( Exception ex )
-        {
-            Console.WriteLine($"Error: {ex.Message}");
-        }
-    }
-}
 
-static async Task RetreiveAsync ()
-{
-    using (var repository = RepositoryFactory.CreateRepository()) 
+    using (var repository = RepositoryFactory.CreateRepository())
     {
         try
         {
-            Expression<Func<Customer, bool>> criteria = c => c.FirstName == "Andres" && c.LastName == "Espinosa";
-            var customer = await repository.RetreiveAsync(criteria);
-            if (customer == null)
-            {
-                Console.WriteLine($"Retrived Customer: {customer.FirstName} \t{customer.LastName} \tCity: {customer.City} \tCountry: {customer.Country}");
-            }
-            else
-            {
-                Console.WriteLine("Customer not exist");
-            }
+            var createdCustomer = await repository.CreateAsync(customer);
+            Console.WriteLine($"Added Customer: {createdCustomer.LastName} {createdCustomer.FirstName}");
         }
         catch (Exception ex)
         {
@@ -59,27 +43,53 @@ static async Task RetreiveAsync ()
     }
 }
 
-static async Task UpdateAsync ()
+static async Task RetrieveAsync()
 {
-    //Supuesto existe el objeto a modificar
+    using (var repository = RepositoryFactory.CreateRepository())
+    {
+        try
+        {
+            Expression<Func<Customer, bool>> criteria = c => c.FirstName == "Jordan" && c.LastName == "Castañeda";
+            var customer = await repository.RetreiveAsync(criteria);
+            if (customer != null)
+            {
+                Console.WriteLine($"Retrived customer: {customer.FirstName} \t{customer.LastName} \tCity: {customer.City} \tCountry: {customer.Country}");
+            }
+            else
+            {
+                Console.WriteLine("Customer not exist");
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+}
+
+static async Task UpdateAsync()
+{
+    //Supuesto: Existe el objeto a modificar
 
     using (var repository = RepositoryFactory.CreateRepository())
     {
-        var customerToUpdate = await repository.RetreiveAsync<Customer>(Customer => Customer.Id == 78);
+        var customerToUpdate = await repository.RetreiveAsync<Customer>(c => c.Id == 78);
         if (customerToUpdate != null)
         {
             customerToUpdate.FirstName = "Liu";
             customerToUpdate.LastName = "Wong";
             customerToUpdate.City = "Toronto";
-            customerToUpdate.Country = "Canáda";
-            customerToUpdate.Phone = "+1437 321456987";
+            customerToUpdate.Country = "Canada";
+            customerToUpdate.Phone = "+1437 8524655";
         }
+
         try
         {
             bool updated = await repository.UpdateAsync(customerToUpdate);
             if (updated)
             {
-                Console.WriteLine("The customer has been update succesfully!");
+                Console.WriteLine("Customer updated succesfully");
             }
             else
             {
@@ -88,13 +98,12 @@ static async Task UpdateAsync ()
         }
         catch (Exception ex)
         {
-
             Console.WriteLine($"Error: {ex.Message}");
         }
     }
 }
 
-static async Task Filterasync()
+static async Task FilterAsync()
 {
     using (var repository = RepositoryFactory.CreateRepository())
     {
@@ -102,25 +111,30 @@ static async Task Filterasync()
 
         var customers = await repository.FilterAsync(criteria);
 
-        foreach (var customer in customers)
+        if (customers != null)
         {
-            Console.WriteLine($"Customer:  {customer.FirstName} {customer.LastName} \t from {customer.City}");
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName}\t\tFrom: {customer.City}");
+            }
         }
-
+        else
+        {
+            Console.WriteLine("No customers found");
+        }
     }
 }
 
-static async Task Deleteasync()
+static async Task DeleteAsync()
 {
     using (var repository = RepositoryFactory.CreateRepository())
     {
         Expression<Func<Customer, bool>> criteria = customer => customer.Id == 93;
-
         var customerToDelete = await repository.RetreiveAsync(criteria);
         if (customerToDelete != null)
         {
             bool deleted = await repository.DeleteAsync(customerToDelete);
-            Console.WriteLine(deleted ? "Customer deleted succesfully. " : "Failed to delete customer.");
+            Console.WriteLine(deleted ? "Customer deleted succesfully" : "Failed to delete customer");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DAL
         //Agregar una nueva entidad a la base da datos
         Task<TEntity> CreateAsync<TEntity>(TEntity toCreate) where TEntity : class;
 
-        // para eliminar una entidad
+        // para eliminar una entidad 
         Task<bool> DeleteAsync<TEntity>(TEntity toDelete) where TEntity : class;
 
         // para actualizar una entidad

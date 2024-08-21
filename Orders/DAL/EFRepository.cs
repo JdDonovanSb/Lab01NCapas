@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class EFRepositorio : IRepository
+    public class EFRepository : IRepository
     {
         //Llmada  a la clase de contexto
         ApplicationDbContext _context;
 
-        public EFRepositorio(ApplicationDbContext context)
+        public EFRepository(ApplicationDbContext context)
         {
             this._context = context;
         }
@@ -75,7 +75,7 @@ namespace DAL
             return Result;
         }
 
-        public async Task<TEntity> RetreiveAsync<TEntity>(Expression<Func<TEntity, bool>> criteria) where TEntity : class
+        public async Task<TEntity> RetrieveAsync<TEntity>(Expression<Func<TEntity, bool>> criteria) where TEntity : class
         {
             TEntity Result = null;
             try

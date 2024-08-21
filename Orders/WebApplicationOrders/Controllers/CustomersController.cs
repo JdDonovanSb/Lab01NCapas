@@ -20,7 +20,7 @@ namespace WebApplicationOrders.Controllers
         }
         //Create
             // GET: Customer/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -118,7 +118,7 @@ namespace WebApplicationOrders.Controllers
                 var result = await _proxy.DeleteAsync(id);
                 if (!result)
                 {
-                    return RedirectToAction("Error", new { message = "No se puede liminar el cliente porque tiene facturas asociadas. " });
+                    return RedirectToAction("Error", new { message = "No se puede eliminar el cliente porque tiene facturas asociadas. " });
                 }
                 return RedirectToAction(nameof(Index));
             }

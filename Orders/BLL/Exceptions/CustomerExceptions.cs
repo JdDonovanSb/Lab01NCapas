@@ -13,9 +13,9 @@ namespace BLL.Exceptions
 
         }
 
-        public static void ThrowCustomerAlreadyExistsException(string firstname, string lastname)
+        public static void ThrowCustomerAlreadyExitsException(string firstName, string lastName)
         {
-            throw new CustomerExceptions($"A client with the name already exists {firstname} {lastname}.");
+            throw new CustomerExceptions($"A client with the name already exists {firstName} {lastName}.");
         }
 
         public static void ThrowInvalidCustomerDataException(string message)
@@ -25,7 +25,7 @@ namespace BLL.Exceptions
 
         public static void ThrowInvalidCustomerIdException(int id)
         {
-            throw new CustomerExceptions($"The client with id {id} was not found or dont exist");
+            throw new CustomerExceptions($"The client with id {id} was not found or doesn't exist");
         }
 
     }

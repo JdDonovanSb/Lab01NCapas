@@ -24,7 +24,7 @@ namespace BLL
 
         public static void ThrowInvalidProductIdException(int id)
         {
-            throw new ProductExceptions($"The product with id {id} was not found or dont exist");
+            throw new ProductExceptions($"The product with id {id} was not found or doesn't exist");
         }
     }
 }

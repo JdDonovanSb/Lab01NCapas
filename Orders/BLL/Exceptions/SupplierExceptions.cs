@@ -24,7 +24,7 @@ namespace BLL
 
         public static void ThrowInvalidSupplierIdException(int id)
         {
-            throw new SupplierExceptions($"The client with id {id} was not found or dont exist.");
+            throw new SupplierExceptions($"The supplier with id {id} was not found or doesn't exist.");
         }
     }
 }

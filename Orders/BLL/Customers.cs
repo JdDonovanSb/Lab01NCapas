@@ -33,7 +33,7 @@ namespace BLL
                     CustomerExceptions.ThrowCustomerAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
-            return customerResult;
+            return customerResult!;
         }
 
         public async Task<Customer> RetreiveByIDAsync(int id)
@@ -48,27 +48,12 @@ namespace BLL
                 if (customer == null)
                 {
                     CustomerExceptions.ThrowInvalidCustomerIdException(id);
-
                 }
                 return customer!;
             }
 
         }
 
-        public async Task<List<Customer>> RetrieveAllAsync()
-        {
-            List<Customer> Result = null;
-
-            using (var r = RepositoryFactory.CreateRepository())
-            {
-                // Define el criterio de filtro para obtener todos los clientes.
-
-                Expression<Func<Customer, bool>> allCustomersCriteria = x => true;
-
-                Result = await r.FilterAsync<Customer>(allCustomersCriteria);
-            }
-            return Result;
-        }
         public async Task<bool> UpdateAsync(Customer customer)
         {
             bool result = false;
@@ -84,7 +69,7 @@ namespace BLL
                 else
                 {
                     // Lanzamos una excepción para indicar que el cliente ya existe
-                    CustomerExceptions.ThrowCustomerAlreadyExistsException(customerSearch.FirstName, customer.LastName);
+                    CustomerExceptions.ThrowCustomerAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
             return result;
@@ -110,6 +95,21 @@ namespace BLL
                 // Podemos implementar alguna lógica
                 // para indicar que el producto no existe 
                 CustomerExceptions.ThrowInvalidCustomerIdException(id);
+            }
+            return Result;
+        }
+
+        public async Task<List<Customer>> RetrieveAllAsync()
+        {
+            List<Customer> Result = null;
+
+            using (var r = RepositoryFactory.CreateRepository())
+            {
+                // Define el criterio de filtro para obtener todos los clientes.
+
+                Expression<Func<Customer, bool>> allCustomersCriteria = x => true;
+
+                Result = await r.FilterAsync<Customer>(allCustomersCriteria);
             }
             return Result;
         }

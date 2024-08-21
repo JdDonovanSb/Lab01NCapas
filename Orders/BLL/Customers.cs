@@ -17,7 +17,7 @@ namespace BLL
             using (var repository = RepositoryFactory.CreateRepository())
             {
                 //Buscar si el nombre del cliente existe
-                Customer customerSearch = await repository.RetreiveAsync<Customer>(c => c.FirstName == customer.FirstName);
+                Customer customerSearch = await repository.RetrieveAsync<Customer>(c => c.FirstName == customer.FirstName);
                 if (customerSearch == null)
                 {
                     //No existe, podemos crearlo
@@ -25,10 +25,10 @@ namespace BLL
                 }
                 else
                 {
-                    CustomerExceptions.ThrowCustomerAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
+                    CustomerExceptions.ThrowCustomerAlreadyExitsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
-            return customerResult;
+            return customerResult!;
         }
 
         public async Task<Customer> RetrieveByIdAsync(int id)
@@ -37,7 +37,7 @@ namespace BLL
 
             using (var repository = RepositoryFactory.CreateRepository())
             {
-                Customer customer = await repository.RetreiveAsync<Customer>(c => c.Id == id);
+                Customer customer = await repository.RetrieveAsync<Customer>(c => c.Id == id);
 
                 //revisar si el cliente se encontró
                 if (customer == null)
@@ -55,7 +55,7 @@ namespace BLL
 
             using (var r = RepositoryFactory.CreateRepository())
             {
-                //Define eñ criterio de filtro para obtener todos los clientes
+                //Define el criterio de filtro para obtener todos los clientes
                 Expression<Func<Customer, bool>> allCustomersCriteria = x => true;
                 Result = await r.FilterAsync<Customer>(allCustomersCriteria);
             }
@@ -68,7 +68,7 @@ namespace BLL
             using (var repository = RepositoryFactory.CreateRepository())
             {
                 //Validar que el nombre del cliente no exista
-                Customer customerSearch = await repository.RetreiveAsync<Customer>(c => c.FirstName == customer.FirstName && c.Id != customer.Id);
+                Customer customerSearch = await repository.RetrieveAsync<Customer>(c => c.FirstName == customer.FirstName && c.LastName == customer.LastName && c.Id != customer.Id);
                 if (customerSearch == null)
                 {
                     //No existe
@@ -76,7 +76,7 @@ namespace BLL
                 }
                 else
                 {
-                    CustomerExceptions.ThrowCustomerAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
+                    CustomerExceptions.ThrowCustomerAlreadyExitsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
             return Result;

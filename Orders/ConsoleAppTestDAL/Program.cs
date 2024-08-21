@@ -6,11 +6,11 @@ using Microsoft.Identity.Client;
 
 
 
-CreateAsync().GetAwaiter().GetResult();
-RetrieveAsync().GetAwaiter().GetResult();
-UpdateAsync().GetAwaiter().GetResult();
-FilterAsync().GetAwaiter().GetResult();
-DeleteAsync().GetAwaiter().GetResult();
+//CreateAsync().GetAwaiter().GetResult();
+//RetrieveAsync().GetAwaiter().GetResult();
+//UpdateAsync().GetAwaiter().GetResult();
+//FilterAsync().GetAwaiter().GetResult();
+//DeleteAsync().GetAwaiter().GetResult();
 
 
 Console.ReadKey();
@@ -49,8 +49,8 @@ static async Task RetrieveAsync()
     {
         try
         {
-            Expression<Func<Customer, bool>> criteria = c => c.FirstName == "Jordan" && c.LastName == "Castañeda";
-            var customer = await repository.RetreiveAsync(criteria);
+            Expression<Func<Customer, bool>> criteria = c => c.FirstName == "Joseph" && c.LastName == "Espinosa";
+            var customer = await repository.RetrieveAsync(criteria);
             if (customer != null)
             {
                 Console.WriteLine($"Retrived customer: {customer.FirstName} \t{customer.LastName} \tCity: {customer.City} \tCountry: {customer.Country}");
@@ -74,7 +74,7 @@ static async Task UpdateAsync()
 
     using (var repository = RepositoryFactory.CreateRepository())
     {
-        var customerToUpdate = await repository.RetreiveAsync<Customer>(c => c.Id == 78);
+        var customerToUpdate = await repository.RetrieveAsync<Customer>(c => c.Id == 78);
         if (customerToUpdate != null)
         {
             customerToUpdate.FirstName = "Liu";
@@ -130,7 +130,7 @@ static async Task DeleteAsync()
     using (var repository = RepositoryFactory.CreateRepository())
     {
         Expression<Func<Customer, bool>> criteria = customer => customer.Id == 93;
-        var customerToDelete = await repository.RetreiveAsync(criteria);
+        var customerToDelete = await repository.RetrieveAsync(criteria);
         if (customerToDelete != null)
         {
             bool deleted = await repository.DeleteAsync(customerToDelete);

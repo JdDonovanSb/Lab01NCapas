@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProxyServices.Interfaces
 {
-    internal class ISupplierProxy
+    public interface ISupplierProxy
     {
         Task<Supplier> CreateAsync(Supplier supplier);
         Task<bool> DeleteAsync(int id);

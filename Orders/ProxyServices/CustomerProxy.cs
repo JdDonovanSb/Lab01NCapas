@@ -24,6 +24,24 @@ namespace ProxyService
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        public async Task<Customer> CreateAsync(Customer customer)
+        {
+            try
+            {
+                var json = JsonSerializer.Serialize(customer);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync("", content);
+                response.EnsureSuccessStatusCode();
+                var responseJson = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<Customer>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+            catch (global::System.Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+        }
+
         public async Task<List<Customer>> GetAllAsync()
         {
             try
@@ -33,7 +51,7 @@ namespace ProxyService
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<List<Customer>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
-            catch (Exception ex)
+            catch (global::System.Exception ex)
             {
                 // Manejar la excepción (e.g., logging)
                 Console.WriteLine($"Error: {ex.Message}");
@@ -49,24 +67,6 @@ namespace ProxyService
                 response.EnsureSuccessStatusCode();
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<Customer>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            }
-            catch (global::System.Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return null;
-            }
-        }
-
-        public async Task<Customer> CreateAsync(Customer customer)
-        {
-            try
-            {
-                var json = JsonSerializer.Serialize(customer);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PostAsync("", content);
-                response.EnsureSuccessStatusCode();
-                var responseJson = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<Customer>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
             catch (global::System.Exception ex)
             {

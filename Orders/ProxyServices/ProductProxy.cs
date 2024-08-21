@@ -18,7 +18,7 @@ namespace ProxyServices
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:7173/api/Product/") // Asegúrate de que esta URL coincida con la configuración de tu servicio
+                BaseAddress = new Uri("https://localhost:7054/api/Product/") // Asegúrate de que esta URL coincida con la configuración de tu servicio
             };
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -42,21 +42,6 @@ namespace ProxyServices
                 // Manejar la excepción (e.g., logging)
                 Console.WriteLine($"Error: {ex.Message}");
                 return null;
-            }
-        }
-
-        public async Task<bool> DeleteAsync(int id)
-        {
-            try
-            {
-                var response = await _httpClient.DeleteAsync($"{id}");
-                return response.IsSuccessStatusCode;
-            }
-            catch (global::System.Exception ex)
-            {
-                // Manejar la excepción (e.g., logging)
-                Console.WriteLine($"Error: {ex.Message}");
-                return false;
             }
         }
 
@@ -99,8 +84,25 @@ namespace ProxyServices
             {
                 var json = JsonSerializer.Serialize(product);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-
                 var response = await _httpClient.PutAsync($"/{id}", content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response Status Code: {response.StatusCode}, Response Content: {responseContent}");
+
+                return response.IsSuccessStatusCode;
+            }
+            catch (global::System.Exception ex)
+            {
+                // Manejar la excepción (e.g., logging)
+                Console.WriteLine($"Error: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            try
+            {
+                var response = await _httpClient.DeleteAsync($"{id}");
                 return response.IsSuccessStatusCode;
             }
             catch (global::System.Exception ex)

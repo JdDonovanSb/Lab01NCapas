@@ -2,46 +2,9 @@
     ViewData["Title"] = "Error";
 }
 
-<style>
-    body {
-        background-color: #1e1e1e; /* Fondo oscuro */
-        color: #e0e0e0; /* Texto claro */
-        font-family: Arial, sans-serif;
-    }
+<h1>Error</h1>
+<p>@ViewBag.ErrorMessage</p>
 
-    .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #343a40; /* Fondo del contenedor oscuro */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-        color: #ffffff; /* Texto blanco para el encabezado */
-    }
-
-    p {
-        color: #e0e0e0; /* Texto claro para el mensaje */
-    }
-
-    .btn-secondary {
-        background-color: #6c757d; /* Color de fondo del botón secundario */
-        border-color: #6c757d;
-        color: #ffffff; /* Texto blanco en botones */
-    }
-
-        .btn-secondary:hover {
-            background-color: #5a6268; /* Color de fondo al pasar el ratón sobre el botón secundario */
-            border-color: #4e555b;
-        }
-</style>
-
-<div class="container">
-    <h1>Error</h1>
-    <p>@ViewBag.ErrorMessage</p>
-    <a asp-action="Index" class="btn btn-secondary">
-        <i class="fas fa-arrow-left"></i> Back to List
-    </a>
-</div>
+<a asp-action="Index" class="btn btn-secondary">
+    <i class="fas fa-arrow-left"></i> Back to List
+</a>

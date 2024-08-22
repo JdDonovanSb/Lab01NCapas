@@ -1,133 +1,43 @@
 ﻿@model List<Entities.Models.Supplier>
 
 @{
-    ViewData["Title"] = "Lista De Proveedores";
+    ViewData["Title"] = "Lista De Productos";
 }
 
-<style>
-    body {
-        background-color: #1e1e1e; /* Fondo oscuro */
-        color: #e0e0e0; /* Texto claro */
-        font-family: Arial, sans-serif;
-    }
+<h1>Lista De Proveedores</h1>
 
-    .container {
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #343a40; /* Fondo del contenedor oscuro */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
+<p>
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Crear Proveedor</a>
+</p>
 
-    h1 {
-        color: #ffffff; /* Texto blanco para el encabezado */
-    }
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre Empresa</th>
+                <th>Telefono Empresa</th>
+                <th>Pais</th>
+                <th></th>
+            </tr>
+        </thead>
 
-    .btn-primary {
-        background-color: #007bff; /* Azul para el botón de crear */
-        border-color: #007bff;
-        color: #ffffff; /* Texto blanco en el botón */
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3; /* Azul oscuro al pasar el ratón */
-            border-color: #004085;
-        }
-
-    .btn-warning {
-        background-color: #ffc107; /* Amarillo para el botón de editar */
-        border-color: #ffc107;
-        color: #000000; /* Texto negro en el botón */
-    }
-
-        .btn-warning:hover {
-            background-color: #e0a800; /* Amarillo oscuro al pasar el ratón */
-            border-color: #d39e00;
-        }
-
-    .btn-info {
-        background-color: #17a2b8; /* Cian para el botón de detalles */
-        border-color: #17a2b8;
-        color: #ffffff; /* Texto blanco en el botón */
-    }
-
-        .btn-info:hover {
-            background-color: #117a8b; /* Cian oscuro al pasar el ratón */
-            border-color: #0d6efd;
-        }
-
-    .btn-danger {
-        background-color: #dc3545; /* Rojo para el botón de eliminar */
-        border-color: #dc3545;
-        color: #ffffff; /* Texto blanco en el botón */
-    }
-
-        .btn-danger:hover {
-            background-color: #c82333; /* Rojo oscuro al pasar el ratón */
-            border-color: #bd2130;
-        }
-
-    .table {
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #e0e0e0; /* Texto claro en la tabla */
-    }
-
-        .table thead th {
-            background-color: #495057; /* Fondo gris oscuro para el encabezado de la tabla */
-            color: #ffffff; /* Texto blanco en el encabezado */
-        }
-
-        .table tbody tr:nth-child(odd) {
-            background-color: #343a40; /* Fondo alterno oscuro para las filas */
-        }
-
-        .table tbody tr:nth-child(even) {
-            background-color: #495057; /* Fondo alterno gris oscuro para las filas */
-        }
-
-        .table tbody tr:hover {
-            background-color: #6c757d; /* Fondo gris más claro al pasar el ratón sobre una fila */
-        }
-</style>
-
-<div class="container">
-    <h1>Lista De Proveedores</h1>
-
-    <p>
-        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Crear Proveedor</a>
-    </p>
-
-    @if (Model != null && Model.Any())
-    {
-        <table class="table table-striped">
-            <thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre Empresa</th>
-                    <th>Telefono Empresa</th>
-                    <th>Pais</th>
-                    <th>Acciones</th>
+                    <td>@item.Id</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.Country</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                    </td>
                 </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.CompanyName</td>
-                        <td>@item.ContactName</td>
-                        <td>@item.Country</td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-</div>
+            }
+        </tbody>
+    </table>
+}

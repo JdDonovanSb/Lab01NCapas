@@ -4,121 +4,63 @@
     ViewData["Title"] = "Supplier Details";
 }
 
-<style>
-    body {
-        background-color: #1e1e1e; /* Fondo oscuro */
-        color: #e0e0e0; /* Texto claro */
-        font-family: Arial, sans-serif;
-    }
+<h1>Supplier Details</h1>
 
-    .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #343a40; /* Fondo del contenedor oscuro */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-        color: #ffffff; /* Texto blanco para el encabezado */
-    }
-
-    h4 {
-        color: #e0e0e0; /* Texto claro para el subtítulo */
-    }
-
-    dl dt {
-        color: #e0e0e0; /* Etiquetas en texto claro */
-        font-weight: bold;
-    }
-
-    dl dd {
-        color: #ffffff; /* Texto blanco en los valores */
-    }
-
-    .btn-primary {
-        background-color: #007bff; /* Color de fondo del botón de editar */
-        border-color: #007bff;
-        color: #ffffff; /* Texto blanco en botones */
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3; /* Color de fondo al pasar el ratón sobre el botón de editar */
-            border-color: #004080;
-        }
-
-    .btn-secondary {
-        background-color: #6c757d; /* Color de fondo del botón secundario */
-        border-color: #6c757d;
-        color: #ffffff; /* Texto blanco en botones */
-    }
-
-        .btn-secondary:hover {
-            background-color: #5a6268; /* Color de fondo al pasar el ratón sobre el botón secundario */
-            border-color: #4e555b;
-        }
-</style>
-
-<div class="container">
-    <h1>Supplier Details</h1>
-
-    <div>
-        <h4>Supplier</h4>
-        <hr />
-        <dl class="row">
-            <dt class="col-sm-2">
-                ID
-            </dt>
-            <dd class="col-sm-10">
-                @Model.Id
-            </dd>
-            <dt class="col-sm-2">
-                Company Name
-            </dt>
-            <dd class="col-sm-10">
-                @Model.CompanyName
-            </dd>
-            <dt class="col-sm-2">
-                Contact Name
-            </dt>
-            <dd class="col-sm-10">
-                @Model.ContactName
-            </dd>
-            <dt class="col-sm-2">
-                Contact Title
-            </dt>
-            <dd class="col-sm-10">
-                @Model.ContactTitle
-            </dd>
-            <dt class="col-sm-2">
-                City
-            </dt>
-            <dd class="col-sm-10">
-                @Model.City
-            </dd>
-            <dt class="col-sm-2">
-                Country
-            </dt>
-            <dd class="col-sm-10">
-                @Model.Country
-            </dd>
-            <dt class="col-sm-2">
-                Phone
-            </dt>
-            <dd class="col-sm-10">
-                @Model.Phone
-            </dd>
-            <dt class="col-sm-2">
-                Fax
-            </dt>
-            <dd class="col-sm-10">
-                @Model.Fax
-            </dd>
-        </dl>
-    </div>
-    <div>
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
-        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
-    </div>
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            ID
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Id
+        </dd>
+        <dt class="col-sm-2">
+            Company Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.CompanyName
+        </dd>
+        <dt class="col-sm-2">
+            Contact Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ContactName
+        </dd>
+        <dt class="col-sm-2">
+            Contact Title
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ContactTitle
+        </dd>
+        <dt class="col-sm-2">
+            City
+        </dt>
+        <dd class="col-sm-10">
+            @Model.City
+        </dd>
+        <dt class="col-sm-2">
+            Country
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Country
+        </dd>
+        <dt class="col-sm-2">
+            Phone
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Phone
+        </dd>
+        <dt class="col-sm-2">
+            Fax
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Fax
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
 </div>

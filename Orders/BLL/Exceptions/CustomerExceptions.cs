@@ -13,7 +13,7 @@ namespace BLL.Exceptions
 
         }
 
-        public static void ThrowCustomerAlreadyExitsException(string firstName, string lastName)
+        public static void ThrowSupplierAlreadyExistsException(string firstName, string lastName)
         {
             throw new CustomerExceptions($"A client with the name already exists {firstName} {lastName}.");
         }

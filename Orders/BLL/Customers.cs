@@ -25,7 +25,7 @@ namespace BLL
                 }
                 else
                 {
-                    CustomerExceptions.ThrowCustomerAlreadyExitsException(customerSearch.FirstName, customerSearch.LastName);
+                    CustomerExceptions.ThrowSupplierAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
             return customerResult!;
@@ -76,7 +76,7 @@ namespace BLL
                 }
                 else
                 {
-                    CustomerExceptions.ThrowCustomerAlreadyExitsException(customerSearch.FirstName, customerSearch.LastName);
+                    CustomerExceptions.ThrowSupplierAlreadyExistsException(customerSearch.FirstName, customerSearch.LastName);
                 }
             }
             return Result;

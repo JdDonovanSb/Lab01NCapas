@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Entities.Models;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Entities.Models;
-using ProxyService.Interfaces;
 
 namespace ProxyService
 {
@@ -82,10 +79,13 @@ namespace ProxyService
                 var json = JsonSerializer.Serialize(customer);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await _httpClient.PutAsync($"{id}", content);
+                var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response Status Code: {response.StatusCode}, Response Content: {responseContent}");
                 return response.IsSuccessStatusCode;
             }
-            catch (global::System.Exception)
+            catch (global::System.Exception ex)
             {
+                Console.WriteLine("Exception during PUT request: " + ex.Message);
                 throw;
             }
         }

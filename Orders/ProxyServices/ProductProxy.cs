@@ -2,7 +2,7 @@
 using ProxyServices.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -32,9 +32,12 @@ namespace ProxyServices
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var response = await _httpClient.PostAsync("", content);
-                response.EnsureSuccessStatusCode();
 
                 var responseJson = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response Status Code: {response.StatusCode}");
+                Console.WriteLine($"Response Content: {responseJson}");
+
+                response.EnsureSuccessStatusCode();
                 return JsonSerializer.Deserialize<Product>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
             catch (global::System.Exception ex)
@@ -84,7 +87,7 @@ namespace ProxyServices
             {
                 var json = JsonSerializer.Serialize(product);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"/{id}", content);
+                var response = await _httpClient.PutAsync($"{id}", content);
                 var responseContent = await response.Content.ReadAsStringAsync();
                 Console.WriteLine($"Response Status Code: {response.StatusCode}, Response Content: {responseContent}");
 
@@ -93,8 +96,8 @@ namespace ProxyServices
             catch (global::System.Exception ex)
             {
                 // Manejar la excepción (e.g., logging)
-                Console.WriteLine($"Error: {ex.Message}");
-                return false;
+                Console.WriteLine("Exception during PUT request: " + ex.Message);
+                throw;
             }
         }
 

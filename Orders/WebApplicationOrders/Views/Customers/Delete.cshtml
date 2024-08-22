@@ -1,71 +1,62 @@
 ﻿@model Entities.Models.Customer
 
 @{
-    ViewData["Title"] = "Delete Customer";
+    ViewData["Title "] = "Delete Customer";
 }
-
-<style>
-    /* Estilos personalizados */
-    .header {
-        background-color: #343a40; /* Fondo negro oscuro */
-        color: #ffffff;
-        padding: 10px;
-        border-radius: 4px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .info-container {
-        background-color: #495057; /* Fondo gris oscuro */
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        color: #ffffff;
-    }
-
-    .btn-custom-danger {
-        background-color: #dc3545; /* Color rojo */
-        border-color: #dc3545;
-        color: #ffffff;
-    }
-
-    .btn-custom-secondary {
-        background-color: #6c757d; /* Color gris */
-        border-color: #6c757d;
-        color: #ffffff;
-    }
-
-        .btn-custom-danger:hover, .btn-custom-secondary:hover {
-            opacity: 0.9; /* Efecto hover */
-        }
-
-    .btn i {
-        margin-right: 5px; /* Espacio entre icono y texto */
-    }
-</style>
-
-<h1 class="header">Delete Customer</h1>
-
-<div class="info-container">
-    <dl class="row">
-        <dt class="col-sm-2">ID</dt>
-        <dd class="col-sm-10">@Model.Id</dd>
-        <dt class="col-sm-2">First Name</dt>
-        <dd class="col-sm-10">@Model.FirstName</dd>
-        <dt class="col-sm-2">Last Name</dt>
-        <dd class="col-sm-10">@Model.LastName</dd>
-        <dt class="col-sm-2">City</dt>
-        <dd class="col-sm-10">@Model.City</dd>
-        <dt class="col-sm-2">Country</dt>
-        <dd class="col-sm-10">@Model.Country</dd>
-        <dt class="col-sm-2">Phone</dt>
-        <dd class="col-sm-10">@Model.Phone</dd>
-    </dl>
+<h1>Delete Customer</h1>
 
 
-    <form asp-controller="Customer" asp-action="Delete" method="post">
-        <input type="hidden" asp-for="Id" />
-        <button type="submit" class="btn btn-custom-danger"><i class="fas fa-trash-alt"></i> Delete</button>
-        <a asp-action="Index" class="btn btn-custom-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
-    </form>
-</div>
+<h4>Customer </h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        ID
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Id
+    </dd>
+    <dt class="col-sm-2">
+        First Name
+    </dt>
+    <dd class="col-sm-10">
+        @Model.FirstName
+    </dd>
+    <dt class="col-sm-2">
+        Last Name
+    </dt>
+    <dd class="col-sm-10">
+        @Model.LastName
+    </dd>
+
+    <dt class="col-sm-2">
+        Last Name
+    </dt>
+    <dd class="col-sm-10">
+        @Model.LastName
+    </dd>
+    <dt class="col-sm-2">
+        City
+    </dt>
+    <dd class="col-sm-10">
+        @Model.City
+    </dd>
+    <dt class="col-sm-2">
+        Country
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Country
+    </dd>
+    <dt class="col-sm-2">
+        Phone
+    </dt>
+    <dd class="col-sm-10">
+        @Model.Phone
+    </dd>
+</dl>
+<form asp-contoller="Customer" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</button>
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>Back to List</a>
+
+</form>
+

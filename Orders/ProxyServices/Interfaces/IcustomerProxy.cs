@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProxyService.Interfaces
+namespace ProxyService
 {
     public interface ICustomerProxy
     {

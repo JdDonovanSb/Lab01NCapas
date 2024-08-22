@@ -1,8 +1,7 @@
 ﻿using DAL;
 using Entities.Models;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using Microsoft.Identity.Client;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 
@@ -34,7 +33,7 @@ static async Task CreateAsync()
         try
         {
             var createdCustomer = await repository.CreateAsync(customer);
-            Console.WriteLine($"Added Customer: {createdCustomer.LastName} {createdCustomer.FirstName}");
+            Console.WriteLine($"Added Customer: {createdCustomer.FirstName} {createdCustomer.LastName}");
         }
         catch (Exception ex)
         {
@@ -55,10 +54,7 @@ static async Task RetrieveAsync()
             {
                 Console.WriteLine($"Retrived customer: {customer.FirstName} \t{customer.LastName} \tCity: {customer.City} \tCountry: {customer.Country}");
             }
-            else
-            {
-                Console.WriteLine("Customer not exist");
-            }
+                Console.WriteLine($"Customer not exist");
 
         }
         catch (Exception ex)
@@ -111,16 +107,9 @@ static async Task FilterAsync()
 
         var customers = await repository.FilterAsync(criteria);
 
-        if (customers != null)
+        foreach (var customer in customers)
         {
-            foreach (var customer in customers)
-            {
-                Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName}\t\tFrom: {customer.City}");
-            }
-        }
-        else
-        {
-            Console.WriteLine("No customers found");
+            Console.WriteLine($"Customer: {customer.FirstName} {customer.LastName}\t\tFrom: {customer.City}");
         }
     }
 }

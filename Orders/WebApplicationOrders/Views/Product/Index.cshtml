@@ -1,0 +1,148 @@
+﻿@model List<Entities.Models.Product>
+
+@{
+    ViewData["Title"] = "Lista De Productos";
+}
+
+<style>
+    body {
+        background-color: #2c2c2c; /* Fondo oscuro */
+        color: #e0e0e0; /* Texto claro */
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #343a40; /* Fondo del contenedor oscuro */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        color: #ffffff; /* Texto blanco para el encabezado */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Color de fondo del botón primario */
+        border-color: #007bff;
+        color: #ffffff; /* Texto blanco en botones */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Color de fondo al pasar el ratón sobre el botón primario */
+            border-color: #004085;
+        }
+
+    .btn-warning {
+        background-color: #ffc107; /* Color de fondo del botón de advertencia */
+        border-color: #ffc107;
+        color: #212529; /* Texto oscuro en botones de advertencia */
+    }
+
+        .btn-warning:hover {
+            background-color: #e0a800; /* Color de fondo al pasar el ratón sobre el botón de advertencia */
+            border-color: #d39e00;
+        }
+
+    .btn-info {
+        background-color: #17a2b8; /* Color de fondo del botón de información */
+        border-color: #17a2b8;
+        color: #ffffff; /* Texto blanco en botones de información */
+    }
+
+        .btn-info:hover {
+            background-color: #138496; /* Color de fondo al pasar el ratón sobre el botón de información */
+            border-color: #117a8b;
+        }
+
+    .btn-danger {
+        background-color: #dc3545; /* Color de fondo del botón de peligro */
+        border-color: #dc3545;
+        color: #ffffff; /* Texto blanco en botones de peligro */
+    }
+
+        .btn-danger:hover {
+            background-color: #c82333; /* Color de fondo al pasar el ratón sobre el botón de peligro */
+            border-color: #bd2130;
+        }
+
+    .table {
+        color: #e0e0e0; /* Texto claro en la tabla */
+    }
+
+        .table thead {
+            background-color: #495057; /* Fondo oscuro para el encabezado de la tabla */
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #3e4347; /* Fila par en tonos oscuros */
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #343a40; /* Fila impar en tonos oscuros */
+        }
+
+        .table tbody tr:hover {
+            background-color: #495057; /* Color al pasar el ratón sobre una fila de la tabla */
+        }
+</style>
+
+<div class="container">
+    <h1>Lista De Productos</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;Crear Productos</a>
+    </p>
+
+    <table id="productosTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Supplier</td>
+                    <td>@item.UnitPrice</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#productosTable').DataTable({
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    });
+</script>

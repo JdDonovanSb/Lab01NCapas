@@ -1,6 +1,11 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using ProxyService;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using WebApplicationOrders.Models; // Asegúrate de usar el namespace correcto
 
 namespace WebApplicationOrders.Controllers
 {
@@ -10,7 +15,7 @@ namespace WebApplicationOrders.Controllers
 
         public CustomersController()
         {
-            this._proxy = new CustomerProxy();
+            _proxy = new CustomerProxy();
         }
 
         public async Task<IActionResult> Index()
@@ -28,7 +33,7 @@ namespace WebApplicationOrders.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create([Bind("Id, FirstName, LastName, City, Country, Phone")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,City,Country,Phone")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +67,7 @@ namespace WebApplicationOrders.Controllers
             // POST: Customer/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, FirstName,LastName, City, Country, Phone")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,City,Country,Phone")] Customer customer)
         {
             if (id != customer.Id)
             {
@@ -108,6 +113,7 @@ namespace WebApplicationOrders.Controllers
             }
             return View(customer);
         }
+
         //POST Customer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

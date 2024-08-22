@@ -1,38 +1,108 @@
 ﻿@model List<Entities.Models.Customer>
 
 @{
-    ViewData["Title"] = "Customers";
+    ViewData["Title"] = "Lista De Clientes";
 }
 
-<h1>Customer List</h1>
+<style>
+    /* Estilos personalizados */
+    .header {
+        background-color: #343a40; /* Fondo negro oscuro */
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .btn-custom-primary {
+        background-color: #007bff; /* Color azul */
+        border-color: #007bff;
+    }
+
+        .btn-custom-primary:hover {
+            opacity: 0.9; /* Efecto hover */
+        }
+
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #ffffff;
+        background-color: #495057; /* Fondo gris oscuro para la tabla */
+    }
+
+        .table thead th {
+            background-color: #343a40; /* Fondo negro oscuro para el encabezado de la tabla */
+            color: #ffffff; /* Color del texto del encabezado */
+            font-weight: bold;
+            border-bottom: 2px solid #6c757d; /* Línea de separación */
+        }
+
+        .table tbody tr:nth-of-type(odd) {
+            background-color: #6c757d; /* Fondo gris más claro para filas impares */
+        }
+
+        .table td {
+            vertical-align: middle;
+            padding: 8px;
+        }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem;
+    }
+
+    .btn-warning {
+        background-color: #ffc107; /* Color amarillo */
+        border-color: #ffc107;
+        color: #212529;
+    }
+
+        .btn-warning:hover {
+            opacity: 0.9;
+        }
+
+    .btn-info {
+        background-color: #17a2b8; /* Color cian */
+        border-color: #17a2b8;
+    }
+
+        .btn-info:hover {
+            opacity: 0.9;
+        }
+
+    .btn-danger {
+        background-color: #dc3545; /* Color rojo */
+        border-color: #dc3545;
+        color: #ffffff;
+    }
+
+        .btn-danger:hover {
+            opacity: 0.9;
+        }
+</style>
+
+<h1 class="header">Lista De Clientes</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Create Customer </a>
+    <a asp-action="Create" class="btn btn-custom-primary"><i class="fas fa-plus"></i>&nbsp Crear Clientes</a>
 </p>
 
-<table class="table">
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                City
-            </th>
-            <th>
-                Country
-            </th>
-            <th>
-                Phone
-            </th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Ciudad</th>
+            <th>Pais</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
         </tr>
     </thead>
+
     <tbody>
         @foreach (var item in Model)
         {

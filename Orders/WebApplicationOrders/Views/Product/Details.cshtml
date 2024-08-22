@@ -4,69 +4,9 @@
     ViewData["Title"] = "Product Details";
 }
 
-<style>
-    body {
-        background-color: #2c2c2c; /* Fondo oscuro */
-        color: #e0e0e0; /* Texto claro */
-        font-family: Arial, sans-serif;
-    }
+<h1>Product Details</h1>
 
-    h1, h4 {
-        color: #ffffff; /* Texto blanco para encabezados */
-    }
-
-    .container {
-        max-width: 800px;
-        margin-top: 20px;
-        padding: 20px;
-        background-color: #343a40; /* Fondo del contenedor oscuro */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    dl {
-        background-color: #495057; /* Fondo gris oscuro para el listado */
-        border-radius: 5px;
-        padding: 20px;
-    }
-
-    dt {
-        font-weight: bold;
-        color: #e0e0e0; /* Texto claro en etiquetas */
-    }
-
-    dd {
-        color: #ced4da; /* Texto gris claro en descripciones */
-    }
-
-    .btn-primary {
-        background-color: #007bff; /* Color de fondo del botón primario */
-        border-color: #007bff;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d; /* Color de fondo del botón secundario */
-        border-color: #6c757d;
-    }
-
-    .btn-primary, .btn-secondary {
-        color: #ffffff; /* Texto blanco en botones */
-    }
-
-        .btn-primary:hover {
-            background-color: #0056b3; /* Color de fondo al pasar el ratón sobre el botón primario */
-            border-color: #004085;
-        }
-
-        .btn-secondary:hover {
-            background-color: #5a6268; /* Color de fondo al pasar el ratón sobre el botón secundario */
-            border-color: #4e555b;
-        }
-</style>
-
-<div class="container">
-    <h1>Product Details</h1>
-
+<div>
     <h4>Product</h4>
     <hr />
     <dl class="row">
@@ -107,9 +47,8 @@
             @(Model.IsDiscontinued ? "Yes" : "No")
         </dd>
     </dl>
-
-    <div class="mt-3">
-        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
-        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
-    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
+    <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to List</a>
 </div>
